@@ -1,0 +1,13 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">BuyBooks</a>
+
+      </div>
+      <ul class="nav navbar-nav">
+        <li *ngIf="!is_authenticated"><a routerLink='/register'>Register</a></li>
+        <li *ngIf="!is_authenticated"><a routerLink='/login'>Login</a></li>
+        <li *ngIf="is_authenticated">  <a (click)="onLogout()">Logout</a></li>
+      </ul>
+    </div>
+  </nav>

@@ -1,0 +1,47 @@
+
+<div class="container">
+    <div class="row">       
+     <h3> Registration form </h3> 
+     <br>
+     <span class="alert alert-danger" *ngIf="error">{{errorMessage}}</span>
+     <br> 
+     <br>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+    <div class="form-group"> 
+    <label for="name">Name:</label>
+    <input type="text" class="form-control"  name ="Name"
+    #Nam="ngModel" ngModel required style="width:50%">
+    <br>
+    <span class="alert alert-warning" *ngIf="!f.value.Name && Nam.touched">Please fill the Name</span>
+    <br>
+    <label for="books">Username</label>
+    <input type="email" class="form-control" email name ="Email" #Boo="ngModel" ngModel required style="width:50%">
+    <br>
+    <span  class="alert alert-warning" *ngIf="!f.value.Email && Boo.touched">Please type your Username</span>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" minlength="6" name ="password" #poo="ngModel" ngModel required style="width:50%">
+    <br>
+    <span  class="alert alert-warning" *ngIf="!f.value.password && poo.touched">Please type your Password</span>
+    <br>
+    <label for="password">Confirm Password</label>
+    <input type="password" class="form-control" minlength="6"  name ="confirmpassword" #cpoo="ngModel" ngModel required style="width:50%">
+    <br>
+    <span  class="alert alert-warning" *ngIf="!f.value.confirmpassword && cpoo.touched">Confirm your Password</span>
+    <br>
+    <label for="number">Contact Number:</label>
+    <input type="number" class="form-control" id="number" name ="Number" #Num="ngModel" ngModel required style="width:50%">
+    <br>
+    <span class="alert alert-warning" *ngIf="!f.value.Number && Num.touched">Please type your Phone Number</span>
+    <br>
+    </div>
+    <button type="submit" [disabled]=f.invalid class="btn btn-primary" >Register</button> 
+    &nbsp;
+    <button type="button" class="btn btn-warning" (click)="cleardata()" >clear</button>
+    <!-- &nbsp;
+    <button type="button"class="btn btn-danger" (click)="getdata()" [disabled]=f.invalid >Delete</button> -->
+    </form>
+    </div>
+    </div>
+    {{postarray | json}}
+    

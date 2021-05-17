@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row"> 
+    <br>
+     <h3> Login  </h3> 
+     <br>
+     <span class="alert alert-danger" *ngIf="error">{{errorMessage}}</span>
+     <br> 
+     <br>
+    <form (ngSubmit)="onSubmit(l)" #l="ngForm">
+    <div class="form-group"> 
+        <label for="books">Username</label>
+    <input type="email"  class="form-control"  name ="username" #Boo="ngModel" ngModel required style="width:50%">
+    <br>
+    <span  class="alert alert-warning" *ngIf="!l.value.username && Boo.touched">Please type your Username</span>
+    <br>
+    <label for="password">Password</label>
+    <input type="password" class="form-control" minlength="6" name ="password" #poo="ngModel" ngModel required style="width:50%">
+    <br>
+    <span  class="alert alert-warning" *ngIf="!l.value.password && poo.touched">Please type your Password</span>
+    <br>
+    </div>
+    <button type="submit" [disabled]=l.invalid class="btn btn-primary" >Login</button> 
+</form>
+</div>
+</div>
+    
